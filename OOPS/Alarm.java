@@ -3,32 +3,38 @@ package OOPS;
 import java.time.LocalDateTime;
 
 public class Alarm {
-    boolean active;
-    final String message;
-    LocalDateTime snoozeUntil;
-    Alarm(String message) {
+    private boolean active;
+    private final String message;
+    private LocalDateTime snoozeUntil;
+    public Alarm(String message) {
         this.message = message;
         stopSnoozing();
     }
-    void snooze() {
-        snoozeUntil = LocalDateTime.now().plusSeconds(5);
+    public LocalDateTime getSnoozeUntil() {
+        return snoozeUntil;
     }
-    boolean isSnoozing() {
+    public void snooze() {
+        if (active)
+            snoozeUntil = LocalDateTime.now().plusSeconds(5);
+    }
+    public boolean isSnoozing() {
         return snoozeUntil.isAfter(LocalDateTime.now());
     }
-    void stopSnoozing() {
+    private void stopSnoozing() {
         snoozeUntil = LocalDateTime.now().minusSeconds(1);
     }
-    void turnOn() {
+    public void turnOn() {
         active = true;
+        stopSnoozing();
     }
-    void turnOff() {
+    public void turnOff() {
         active = false;
+        stopSnoozing();
     }
-    String getReport() {
+    public String getReport() {
         return getReport(false);
     }
-    String getReport(boolean uppercase) {
+    public String getReport(boolean uppercase) {
         if (active && !isSnoozing()) {
             if (uppercase)
                 return message.toUpperCase();
@@ -37,7 +43,7 @@ public class Alarm {
         } else
             return "";
     }
-    void sendReport() {
+    public void sendReport() {
         System.out.println(getReport(true));
     }
 }

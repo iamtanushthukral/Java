@@ -9,5 +9,10 @@ public class CallingAlarm {
         alarm.sendReport();
         Thread.sleep(6000); //waiting for 5 seconds for snooze to complete
         alarm.sendReport();
+
+        PrioritizedAlarm prioritizedAlarm = new PrioritizedAlarm("Prioritized alarm.", 2);
+        prioritizedAlarm.turnOn();
+        prioritizedAlarm.sendReport();
+        System.out.println(prioritizedAlarm.getPriority());
     }
 }
