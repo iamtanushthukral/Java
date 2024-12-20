@@ -1,11 +1,13 @@
 package OOPS;
 
 public class CallingAlarm {
-    public static void main(String[] args) {
-        Alarm alarm = new Alarm();
-        System.out.println(alarm.active);
+    public static void main(String[] args) throws InterruptedException {
+        Alarm alarm = new Alarm("Temp too high!");
         alarm.turnOn();
-        System.out.println(alarm.active);
-        alarm.turnOff();
+        alarm.sendReport();
+        alarm.snooze();
+        alarm.sendReport();
+        Thread.sleep(6000); //waiting for 5 seconds for snooze to complete
+        alarm.sendReport();
     }
 }
