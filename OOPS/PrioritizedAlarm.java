@@ -1,6 +1,6 @@
 package OOPS;
 
-public class PrioritizedAlarm extends Alarm{
+public class PrioritizedAlarm extends Alarm {
     private final int priority;
     public PrioritizedAlarm(String message, int priority) {
         super(message);

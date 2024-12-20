@@ -3,7 +3,7 @@ package OOPS;
 import java.time.LocalDateTime;
 
 public class Alarm {
-    private boolean active;
+    protected boolean active;
     private final String message;
     private LocalDateTime snoozeUntil;
     public Alarm(String message) {
@@ -12,6 +12,9 @@ public class Alarm {
     }
     public LocalDateTime getSnoozeUntil() {
         return snoozeUntil;
+    }
+    public String getMessage() {
+        return message;
     }
     public void snooze() {
         if (active)

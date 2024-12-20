@@ -2,7 +2,7 @@ package OOPS;
 
 public class CallingAlarm {
     public static void main(String[] args) throws InterruptedException {
-        Alarm alarm = new Alarm("Temp too high!");
+        Alarm alarm = new Alarm("Temp too high");
         alarm.turnOn();
         alarm.sendReport();
         alarm.snooze();
@@ -14,5 +14,9 @@ public class CallingAlarm {
         prioritizedAlarm.turnOn();
         prioritizedAlarm.sendReport();
         System.out.println(prioritizedAlarm.getPriority());
+
+        HighVisibilityAlarm highVisibilityAlarm = new HighVisibilityAlarm("High visibility alarm");
+        highVisibilityAlarm.turnOn();
+        highVisibilityAlarm.sendReport();
     }
 }
