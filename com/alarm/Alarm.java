@@ -1,4 +1,4 @@
-package OOPS;
+package com.alarm;
 
 import java.time.LocalDateTime;
 
@@ -23,7 +23,7 @@ public class Alarm {
     public boolean isSnoozing() {
         return snoozeUntil.isAfter(LocalDateTime.now());
     }
-    private void stopSnoozing() {
+    protected final void stopSnoozing() {
         snoozeUntil = LocalDateTime.now().minusSeconds(1);
     }
     public void turnOn() {

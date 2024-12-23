@@ -1,4 +1,4 @@
-package OOPS;
+package com.alarm;
 
 public class CallingAlarm {
     public static void main(String[] args) throws InterruptedException {
@@ -18,5 +18,11 @@ public class CallingAlarm {
         HighVisibilityAlarm highVisibilityAlarm = new HighVisibilityAlarm("High visibility alarm");
         highVisibilityAlarm.turnOn();
         highVisibilityAlarm.sendReport();
+
+        Dashboard dashboard = new Dashboard();
+        dashboard.addAlarm(prioritizedAlarm);
+        dashboard.addAlarm(highVisibilityAlarm);
+        dashboard.addAlarm(new TimeSensitiveAlarm("Never mind, you missed the deadline."));
+        dashboard.printReport();
     }
 }

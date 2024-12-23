@@ -1,4 +1,4 @@
-package OOPS;
+package com.alarm;
 
 public class HighVisibilityAlarm extends Alarm {
     public HighVisibilityAlarm(String message) {

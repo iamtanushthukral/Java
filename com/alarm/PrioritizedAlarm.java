@@ -1,4 +1,4 @@
-package OOPS;
+package com.alarm;
 
 public class PrioritizedAlarm extends Alarm {
     private final int priority;
