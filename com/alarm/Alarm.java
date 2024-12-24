@@ -1,8 +1,9 @@
 package com.alarm;
 
+import java.awt.*;
 import java.time.LocalDateTime;
 
-public class Alarm {
+public abstract class Alarm {
     protected boolean active;
     private final String message;
     private LocalDateTime snoozeUntil;
@@ -10,6 +11,7 @@ public class Alarm {
         this.message = message;
         stopSnoozing();
     }
+    public abstract Color getColor();
     public LocalDateTime getSnoozeUntil() {
         return snoozeUntil;
     }
@@ -34,6 +36,11 @@ public class Alarm {
         active = false;
         stopSnoozing();
     }
+    @Override
+    public String toString() {
+        return getReport();
+    }
+
     public String getReport() {
         return getReport(false);
     }
